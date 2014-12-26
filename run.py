@@ -4,9 +4,6 @@ import ipdb
 from operator import itemgetter
 
 bt = BusTimes()
-print bt.getDisruptionInformation(50440)
-#combined_list= bt.getArrivalTimes([75474]) + bt.getArrivalTimes(77433)
-#sorted_list = sorted(combined_list, key=lambda x: int(x['estimatedWait'][:2]))
 
 app = Flask(__name__)
 
