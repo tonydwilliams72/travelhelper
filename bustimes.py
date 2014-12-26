@@ -16,21 +16,22 @@ class BusTimes(object):
 
 		for stopcode in stopCodes:
 			arrival_time = self.getAllBusTimes(stopcode)['arrivals']
-			print "Arrival Times Len:" + str(len(arrival_time))
-			print arrival_time
 
 			if len(arrival_time) > 0:	
-				print "Append Time.."
-				bus_times.append(arrival_time)
-				return sorted_bus_times[:results_returned]
-			else:
-				return bus_times
+				print "Appending Bus Times List"
+				bus_times += arrival_time
 
 		if len(bus_times) > 0:
 			print "Sorting"
+			self.replaceDueArrivals(bus_times)
 			return sorted(bus_times, key=lambda x: int(x['estimatedWait'][:2]))
 		else:
 			return bus_times
+
+	def replaceDueArrivals(self,arrival_times=[]):
+		for arrival_time in arrival_times:
+			if "due" in arrival_time['estimatedWait']:
+				arrival_time['estimatedWait'] = u'0 min'
 
 	def getDisruptionInformation(self, stopcode):
 		return self.getAllBusTimes(stopcode)['serviceDisruptions']['criticalMessages']
