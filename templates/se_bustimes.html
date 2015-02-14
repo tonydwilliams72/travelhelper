@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Bus Times SW</title>
+	<meta http-equiv="refresh" content="30">
+</head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<body>
+<div class="container-fluid">
+<strong></strong><h1 class="text-primary">Lewisham</h1></strong>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><h2>Route</h2></th>
+            <th ><h2>Due</h2></th>
+            <th><h2>Destination</h2></th>
+
+        </tr>
+    </thead>
+    <tbody>
+    	{% for bus in lewisham_buses: %}
+    		<tr>
+    			<td><h2>{{ bus['routeId'] }}</h2></td>
+    			<td><h2>{{ bus['estimatedWait'] }}</h2></td>
+    			<td><h2>{{ bus['destination'] }}</h2></td>
+    		</tr>
+    	{% endfor %}
+    </tbody>
+</table>
+</div>
+</body>
+</html>
