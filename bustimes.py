@@ -1,6 +1,7 @@
 import requests
 import json
 
+
 class BusTimes(object):
 
 	baseURL = "http://countdown.tfl.gov.uk/stopBoard/"
@@ -11,21 +12,34 @@ class BusTimes(object):
 		bus_times_all = json.loads(response.text)
 		return bus_times_all
 
-	def getArrivalTimes(self,stopCodes=[], results_returned=4):
+	def getArrivalTimes(self,stopCodes=[], filter=[],results_returned=4):
 		bus_times = []
 
 		for stopcode in stopCodes:
 			arrival_time = self.getAllBusTimes(stopcode)['arrivals']
 
-			if len(arrival_time) > 0:	
+			if len(arrival_time) > 0:
 				print "Appending Bus Times List"
 				bus_times += arrival_time
+
+		# Filter Buses
+		for bus in bus_times[:]:
+			if filter:
+				print "Filter"
+				if bus['routeId'] not in filter:
+					bus_times.remove(bus)
+					print "Removed"
+					print bus
+		print "Final Bus"
+		print bus_times
 
 		if len(bus_times) > 0:
 			print "Sorting"
 			self.replaceDueArrivals(bus_times)
+			#pprint(bus_times)
 			return sorted(bus_times, key=lambda x: int(x['estimatedWait'][:2]))
 		else:
+			print bus_times
 			return bus_times
 
 	def replaceDueArrivals(self,arrival_times=[]):
