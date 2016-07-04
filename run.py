@@ -1,6 +1,5 @@
 from bustimes import BusTimes
 from flask import render_template, Flask
-import ipdb
 from operator import itemgetter
 
 bt = BusTimes()
