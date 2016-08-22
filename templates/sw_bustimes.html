@@ -27,9 +27,9 @@
     <tbody>
     	{% for bus in putney_33: %}
     		<tr>
-    			<td><h2>{{ bus['routeId'] }}</h2></td>
-    			<td><h2>{{ bus['estimatedWait'] }}</h2></td>
-    			<td><h2>{{ bus['destination'] }}</h2></td>
+    			<td><h2>{{ bus['lineId'] }}</h2></td>
+    			<td><h2>{{ bus['timeToStationMins'] }} mins</h2></td>
+    			<td><h2>{{ bus['destinationName'] }}</h2></td>
     		</tr>
     	{% endfor %}
     </tbody>
@@ -51,9 +51,9 @@
     <tbody>
     	{% for bus in clj_combined: %}
     		<tr>
-    			<td><h2>{{ bus['routeId'] }}</h2></td>
-    			<td><h2>{{ bus['estimatedWait'] }}</h2></td>
-    			<td><h2>{{ bus['destination'] }}</h2></td>
+    			<td><h2>{{ bus['lineId'] }}</h2></td>
+    			<td><h2>{{ bus['timeToStationMins'] }} mins</h2></td>
+    			<td><h2>{{ bus['destinationName'] }}</h2></td>
     		</tr>
     	{% endfor %}
     </tbody>
