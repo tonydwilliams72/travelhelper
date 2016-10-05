@@ -13,3 +13,4 @@ requests==2.5.0
 simplejson==3.6.5
 wmctrl==0.1
 wsgiref==0.1.2
+gunicorn==19.6.0
