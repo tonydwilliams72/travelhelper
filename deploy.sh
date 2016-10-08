@@ -7,7 +7,7 @@ APP="travelhelper"
 DOCKER_IMAGE="145949126156.dkr.ecr.eu-west-1.amazonaws.com/travel-helper"
 TAG=$SHA1
 S3_BUCKET="amit-code"
-S3_DIR=$travelhelper
+S3_DIR=$APP
 
 # Update Dockerrun Template
 sed  "s|<DOCKER_IMAGE>|$DOCKER_IMAGE|g ; s|<TAG>|$SHA1|g" Dockerrun.aws.json.template > Dockerrun.aws.json
