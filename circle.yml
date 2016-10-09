@@ -14,5 +14,5 @@ deployment:
     commands:
       - $(aws ecr get-login --region eu-west-1)
       - docker tag travel-helper:latest 145949126156.dkr.ecr.eu-west-1.amazonaws.com/travel-helper:$CIRCLE_SHA1
-      - docker push 145949126156.dkr.ecr.eu-west-1.amazonaws.com/travel-helper:latest
+      - docker push 145949126156.dkr.ecr.eu-west-1.amazonaws.com/travel-helper:$CIRCLE_SHA1
       - ./deploy.sh $CIRCLE_SHA1
