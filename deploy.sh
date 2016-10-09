@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SHA1="latest"
+SHA1=$1
 
 REGION="eu-west-1"
 APP="travelhelper"
