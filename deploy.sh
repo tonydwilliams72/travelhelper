@@ -18,9 +18,11 @@ cat Dockerrun.aws.json
 # Copy Template to S3
 aws s3 cp Dockerrun.aws.json s3://$S3_BUCKET/$S3_DIR/Dockerrun.aws.json
 
-# Update EB Application
+# Create New EB Version
 aws elasticbeanstalk create-application-version --region=$REGION \
                                                 --application-name $APP \
                                                 --version-label $SHA1 \
                                                 --source-bundle S3Bucket=$S3_BUCKET,S3Key=$S3_DIR/Dockerrun.aws.json
-
+# Deploy New EB Version
+ws elasticbeanstalk update-environment --environment-name $APP \
+				       --version-label $SHA1
