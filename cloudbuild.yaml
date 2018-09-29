@@ -1,0 +1,11 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/$APP_NAME:$BUILD_ID', '.']
+  timeout: 120s
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/$APP_NAME:$BUILD_ID']
+- name: 'gcr.io/$PROJECT_ID/helm'
+  args: ['version', '--debug']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=$ZONE'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=$CLUSTER_NAME'
