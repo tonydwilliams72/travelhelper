@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/cmystic-subject-217418/travel-helper
+  repository: gcr.io/mystic-subject-217418/travel-helper
   tag: placeholder
   pullPolicy: IfNotPresent
 
