@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Bus Times SW</title>
+	<title></title>
 	<meta http-equiv="refresh" content="30">
 </head>
 <!-- Latest compiled and minified CSS -->
@@ -14,7 +14,7 @@
 
 <body>
 <div class="container-fluid">
-<strong></strong><h1 class="text-primary">Lewisham</h1></strong>
+<strong></strong><h1 class="text-primary">Lee Station -> Harland</h1></strong>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -25,15 +25,39 @@
         </tr>
     </thead>
     <tbody>
-    	{% for bus in lewisham_buses: %}
+    	{% for bus in lee_harland: %}
     		<tr>
     			<td><h2>{{ bus['lineId'] }}</h2></td>
-    			<td><h2>{{ bus['timeToStationMins'] }}</h2></td>
+    			<td><h2>{{ bus['timeToStationMins'] }} mins</h2></td>
     			<td><h2>{{ bus['destinationName'] }}</h2></td>
     		</tr>
     	{% endfor %}
     </tbody>
 </table>
+
+<strong></strong><h1 class="text-primary">Harland -> Lee</h1></strong>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><h2>Route</h2></th>
+            <th ><h2>Due</h2></th>
+            <th><h2>Destination</h2></th>
+
+        </tr>
+    </thead>
+    <tbody>
+    	{% for bus in harland_lee: %}
+    		<tr>
+    			<td><h2>{{ bus['lineId'] }}</h2></td>
+    			<td><h2>{{ bus['timeToStationMins'] }} mins</h2></td>
+    			<td><h2>{{ bus['destinationName'] }}</h2></td>
+    		</tr>
+    	{% endfor %}
+    </tbody>
+</table>
+
+
+<br>
 </div>
 </body>
 </html>

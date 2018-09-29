@@ -17,13 +17,13 @@ service:
   port: 80
 
 ingress:
-  enabled: false
+  enabled: true
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - chart-example.local
+    - travelhelper.lalani.co
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
