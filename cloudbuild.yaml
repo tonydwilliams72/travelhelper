@@ -7,5 +7,5 @@ steps:
 - name: 'gcr.io/$PROJECT_ID/helm'
   args: ['version', '--debug']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=$ZONE'
+  - 'CLOUDSDK_COMPUTE_ZONE=$_ZONE'
   - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
