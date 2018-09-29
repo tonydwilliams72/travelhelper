@@ -5,7 +5,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/$_APP_NAME:$BUILD_ID']
 - name: 'gcr.io/$PROJECT_ID/helm'
-  args: ['version', '--debug']
+  args: ['helm', 'upgrade', '--install',  '--values', 'deployment/values.yaml', '--set', 'image.tag=$BUILD_ID', 'travel-helper', 'deployment/']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=$_ZONE'
   - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
