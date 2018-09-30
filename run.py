@@ -3,7 +3,7 @@ from flask import render_template, Flask
 
 bt = BusTimes()
 
-app = Flask(__name__)   
+app = Flask(__name__)
 
 @app.route('/')
 def homePage():
@@ -23,13 +23,13 @@ def displaySwTimes():
 
 @app.route('/lee_harland')
 def displaySeTimes():
-    lee_harland = ['490001176B']
-    harland_lee = ['490007801N']
+    lee = ['490001176B']
+    baring = ['490007801N']
     bus = ['273', '261']
     return render_template(
         'se_bustimes.html',
-        lee_harland=bt.getArrivalTimes(stopCodes=lee_harland),
-        harland_lee=bt.getArrivalTimes(stopCodes=harland_lee)
+        lee=bt.getArrivalTimes(stopCodes=lee),
+        baring=bt.getArrivalTimes(stopCodes=baring)
     )
 
 if __name__ == '__main__':

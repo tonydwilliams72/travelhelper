@@ -14,7 +14,7 @@
 
 <body>
 <div class="container-fluid">
-<strong></strong><h1 class="text-primary">Lee Station -> Harland</h1></strong>
+<strong></strong><h1 class="text-primary">Lee Station</h1></strong>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -25,7 +25,7 @@
         </tr>
     </thead>
     <tbody>
-    	{% for bus in lee_harland: %}
+    	{% for bus in lee: %}
     		<tr>
     			<td><h2>{{ bus['lineId'] }}</h2></td>
     			<td><h2>{{ bus['timeToStationMins'] }} mins</h2></td>
@@ -35,7 +35,7 @@
     </tbody>
 </table>
 
-<strong></strong><h1 class="text-primary">Harland -> Lee</h1></strong>
+<strong></strong><h1 class="text-primary">Baring</h1></strong>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -46,7 +46,7 @@
         </tr>
     </thead>
     <tbody>
-    	{% for bus in harland_lee: %}
+    	{% for bus in baring: %}
     		<tr>
     			<td><h2>{{ bus['lineId'] }}</h2></td>
     			<td><h2>{{ bus['timeToStationMins'] }} mins</h2></td>
