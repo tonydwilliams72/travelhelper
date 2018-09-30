@@ -21,7 +21,7 @@ def displaySwTimes():
         clj_disruption=[],
     )
 
-@app.route('/lee_harland')
+@app.route('/lee_baring')
 def displaySeTimes():
     lee = ['490001176B']
     baring = ['490007801N']
