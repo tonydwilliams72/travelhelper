@@ -1,5 +1,7 @@
+
 import requests
 import json
+import time
 
 
 class BusTimes(object):
@@ -10,6 +12,16 @@ class BusTimes(object):
     def getAllBusTimes(self, stopCode):
         api_url = self.baseURL.format(stopCode)
         response = requests.get(api_url)
+        if response.status_code == 500:
+            print "Retrying"
+            time.sleep(2)
+            response = requests.get(api_url)
+
+        if response.status_code == 500:
+            time.sleep(2)
+            print "Retrying Again.."
+            response = requests.get(api_url)
+
         bus_times_all = json.loads(response.text)
         return bus_times_all
 
@@ -21,17 +33,26 @@ class BusTimes(object):
 
             if len(arrival_time) > 0:
                 print "Appending Bus Times List"
+                print "trace"
                 bus_times += arrival_time
-
+    
         # Filter Buses
         for bus in bus_times[:]:
             if filter:
+                
                 print "Filter"
                 if bus['lineId'] not in filter:
                     bus_times.remove(bus)
                     print "Removed"
                     print bus
-            bus[u'timeToStationMins'] = bus['timeToStation'] / 60
+
+            print "IMPORTANT!!!!"
+            print "Bus Time to Station"
+            try:
+                bus[u'timeToStationMins'] = bus['timeToStation'] / 60
+            except TypeError:
+                print "Error"
+                print bus
         print "Final Bus"
         print bus_times
 
