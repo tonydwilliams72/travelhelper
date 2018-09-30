@@ -23,7 +23,7 @@ ingress:
   }
   path: /
   hosts:
-    - travelhelper.lalani.co
+    - travel.lalani.co
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
