@@ -9,3 +9,8 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=$_ZONE'
   - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
+- name: 'gcr.io/$PROJECT_ID/helm'
+  args: ['upgrade', '--install',  '--values', 'dns-values.yaml', 'external-dns', 'stable/external-dns']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=$_ZONE'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
