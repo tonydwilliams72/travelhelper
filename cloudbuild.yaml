@@ -14,3 +14,8 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=$_ZONE'
   - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
+- name: 'gcr.io/$PROJECT_ID/helm'
+  args: ['upgrade', '--install',  '--vaues', 'nginx-ingress-values.yaml', 'nginx-ingress', 'stable/nginx-ingress']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=$_ZONE'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
