@@ -20,7 +20,8 @@ ingress:
   enabled: true
   annotations: {
     kubernetes.io/ingress.class: nginx,
-    kubernetes.io/ingress.allow-http: false
+    nginx.ingress.kubernetes.io/limit-connections: 10,
+    nginx.ingress.kubernetes.io/limit-rps: 100
   }
   path: /
   hosts:
