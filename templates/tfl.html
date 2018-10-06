@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <style>
+            div #tubestatus{
+                border-radius: 2%
+            }
+
+            ul {
+                color: aliceblue;
+                margin: 0%;
+                border-color: aliceblue;
+            }
+
+            .status-10 {
+                background-color: green;
+            }
+
+            .status-6 {
+                background-color: red;
+            }
+
+            .status-9 {
+                background-color: orange;
+            }
+
+            .status-5{
+                background-color: orange;
+            }
+
+            .test {
+                background-color: blue;
+                height: 100px;
+                width: 100px;
+                border-radius: 30%
+
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class=test>
+            <ul>test1</ul>
+            <ul>test2</ul>
+        </div>
+        <div id=tubestatus></div>
+        <script>
+            console.log("foo");
+
+            fetch('https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail/status')
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(myJson) {
+                    console.log(myJson);
+                    tubestatus = document.getElementById("tubestatus");
+                    myJson.forEach(function (tube, index){
+                        statusSeverity = tube.lineStatuses[0].statusSeverity;
+
+                        node = document.createElement("ul");
+                        node.setAttribute("class", "status-" + statusSeverity);
+                        textNode = document.createTextNode(tube.name);
+                        node.appendChild(textNode);
+                        tubestatus.appendChild(node);
+                    });
+                });
+        </script>
+    </body>
+</html>
