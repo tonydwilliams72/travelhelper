@@ -1,0 +1,8 @@
+controller:
+  publishService:
+    enabled: true
+
+defaultBackend:
+  resources: {
+    cpu: 10m
+  }
