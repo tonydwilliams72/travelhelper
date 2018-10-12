@@ -1,6 +1,8 @@
 from bustimes import BusTimes
 from flask import render_template, Flask
 
+from google.cloud import error_reporting
+
 bt = BusTimes()
 
 app = Flask(__name__)
@@ -40,5 +42,5 @@ if __name__ == '__main__':
             version='v1.0'
         )
     except ImportError:
-        print "Import Error"
+        client.report_exception()
     app.run(host='0.0.0.0', port=8080, debug=True)
