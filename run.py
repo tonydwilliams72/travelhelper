@@ -3,6 +3,8 @@ from flask import render_template, Flask
 
 from google.cloud import error_reporting
 
+
+client = error_reporting.Client()
 bt = BusTimes()
 
 app = Flask(__name__)
