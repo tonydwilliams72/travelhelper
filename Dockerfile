@@ -2,6 +2,10 @@ FROM alpine
 
 RUN apk add --update \
     python \
+    python-dev \
+    gcc \
+    linux-headers \
+    g++ \
     py-pip
 
 RUN mkdir /srv/travelhelper
