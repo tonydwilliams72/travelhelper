@@ -1,13 +1,5 @@
 FROM python:2-stretch
 
-#RUN apk add --update \
-#    python \
-#    python-dev \
-#    gcc \
-#    linux-headers \
-#    g++ \
-#    py-pip
-
 RUN mkdir /srv/travelhelper
 
 COPY . /srv/travelhelpder
